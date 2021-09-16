@@ -2,7 +2,6 @@
 
 
 @section('content')
-
     <a href="{{route('stores.create' )}}" class="btn btn-sm btn-success" style="margin-top: 35px">Criar loja</a>
     <table class="table table-striped">
         <thead>
