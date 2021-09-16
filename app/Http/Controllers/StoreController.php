@@ -10,7 +10,7 @@ class StoreController extends Controller
 {
     public function index()
     {
-        $stores = Store::paginate(20);
+        $stores = Store::paginate(15);
         return view('admin.stores.index', compact('stores'));
     }
 
@@ -24,12 +24,31 @@ class StoreController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
         $user = User::find($data['user']);
         $store = $user->store()->create($data);
-
         return $store;
+    }
 
+    public function edit($storeId)
+    {
+        $store = Store::find($storeId);
+
+        return view('admin.stores.edit', compact('store'));
+    }
+
+    public function update(Request $request, $store)
+    {
+        $data = $request->all();
+        $store = Store::find($store);
+        $store->update($data);
+        return $store;
+    }
+
+    public function destroy($store)
+    {
+        $store = Store::find($store);
+        $store->delete();
+        return redirect('/stores');
     }
 
 

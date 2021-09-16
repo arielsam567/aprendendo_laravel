@@ -15,9 +15,12 @@ php artisan make:controller HelloController
 
 
 Route::prefix('stores')->group(function (){
-    Route::get('/', 'App\Http\Controllers\StoreController@index');
-    Route::get('/create', 'App\Http\Controllers\StoreController@create');
-    Route::post('/store', 'App\Http\Controllers\StoreController@store');
+    Route::get('/', 'App\Http\Controllers\StoreController@index')->name('stores.index');
+    Route::get('/create', 'App\Http\Controllers\StoreController@create')->name('stores.create');
+    Route::post('/store', 'App\Http\Controllers\StoreController@store')->name('stores.store');
+    Route::get('/{store}/edit', 'App\Http\Controllers\StoreController@edit')->name('stores.edit');
+    Route::post('/update/{store}', 'App\Http\Controllers\StoreController@update')->name('stores.update');
+    Route::get('/destroy/{store}', 'App\Http\Controllers\StoreController@destroy')->name('stores.destroy');
 });
 
 Route::get('/', function () {
