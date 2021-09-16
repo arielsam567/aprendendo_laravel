@@ -3,6 +3,7 @@
 
 @section('content')
 
+    <a href="{{route('stores.create' )}}" class="btn btn-sm btn-success" style="margin-top: 35px">Criar loja</a>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -16,8 +17,8 @@
                 <th>{{$store->id}}</th>
                 <th>{{$store->name}}</th>
                 <th>
-                    <a href="{{route('stores.edit', ['store'=> $store->id] )}}" class="btn btn-sm btn-link">Editar</a>
-                    <a href="{{route('stores.destroy', ['store'=> $store->id] )}}" class="btn btn-sm btn-danget">Remover</a>
+                    <a href="{{route('stores.edit', ['store'=> $store->id] )}}" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="{{route('stores.destroy', ['store'=> $store->id] )}}" class="btn btn-sm btn-danger">Remover</a>
                 </th>
             </tr>
         @endforeach
