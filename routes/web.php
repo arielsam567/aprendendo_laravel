@@ -23,8 +23,13 @@ Route::prefix('stores')->group(function (){
     Route::get('/destroy/{store}', 'App\Http\Controllers\StoreController@destroy')->name('stores.destroy');
 });
 
-Route::resource('products', 'ProductController')
+Route::resource('products', 'ProductController');
 
+
+Route::get('/mobile', function () {
+   return view('admin/stores/mobile');
+   // return view('admin/products.edit', compact('product'));
+});
 
 Route::get('/', function () {
     return view('welcome');

@@ -43,7 +43,3 @@
 .text-divider::after {
     margin-left: var(--text-divider-gap);
 }
-
-.teste{
-    color: red;
-}
